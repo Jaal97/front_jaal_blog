@@ -6,8 +6,8 @@ import { useState } from "react";
 
 const LoginPage = () => {
   const [errors, setErrors] = useState<string[]>([]);
-  const [userName, setUserName] = useState<string>("Jmin");
-  const [password, setPassword] = useState<string>("123123");
+  const [userName, setUserName] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -42,7 +42,7 @@ const LoginPage = () => {
         />
         <input
           type="password"
-          placeholder="123123"
+          placeholder="*****"
           name="password"
           className="form-control mb-2"
           value={password}

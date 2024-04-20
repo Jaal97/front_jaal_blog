@@ -1,22 +1,22 @@
 "use client";
 
 import { signIn, signOut, useSession } from "next-auth/react";
-
+import Image from 'next/image'
 
 export default function ButtonAuth() {
-  const { data: session, status} = useSession();
-    
-    console.log({session, status});
-    
+  const { data: session, status } = useSession();
+
+  console.log({ session, status });
+
 
   if (status === "loading") {
     return <p>Loading...</p>;
   }
 
   if (session) {
-    
+
     return (
-        
+
       <>
        
         Signed in as {session.user?.userName} <br />

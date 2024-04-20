@@ -6,9 +6,9 @@ import { useState } from "react";
 
 const RegisterPage = () => {
   const [errors, setErrors] = useState<string[]>([]);
-  const [image, setImage] = useState<string>("https://sgtte7884ed");
-  const [userName, setUserName] = useState<string>("test");
-  const [password, setPassword] = useState<string>("123123");
+  const [image, setImage] = useState<string>("");
+  const [userName, setUserName] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -43,6 +43,7 @@ const RegisterPage = () => {
       redirect: false,
     });
 
+
     if (responseNextAuth?.error) {
       setErrors(responseNextAuth.error.split(","));
       return;
@@ -58,7 +59,7 @@ const RegisterPage = () => {
         <p>Imagen</p>
         <input
           type="text"
-          placeholder="test"
+          placeholder="https://image.jpg"
           name="image"
           className="form-control mb-2"
           value={image}
@@ -76,7 +77,7 @@ const RegisterPage = () => {
         Contraseña
         <input
           type="password"
-          placeholder="123123"
+          placeholder="*****"
           name="password"
           className="form-control mb-2"
           value={password}
