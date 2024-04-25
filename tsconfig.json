@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/context/SessionAuthProvider.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/context/SessionAuthProvider.tsx", "src/app/posts/page.jsx", "src/app/page.jsx", "src/components/Card.jsx"],
   "exclude": ["node_modules"]
 }
