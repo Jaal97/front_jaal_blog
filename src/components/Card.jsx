@@ -17,8 +17,9 @@ const Card = (props) => {
                                 <img src={post.image} alt="Placeholder Image" className="w-full h-48 rounded-md object-cover" />
                                 <div className="px-1 py-4">
                                     <div className="font-bold text-xl mb-2">{post.title}</div>
+                                    <p className='text-gray-900 text-sm mb-2'>Por: {post.idUser.userName}</p>
                                     <p className="text-gray-700 text-base">
-                                        {post.content}
+                                        {post.content.slice(0, 50)}...
                                     </p>
                                 </div>
                                 <div className="px-1 py-4">

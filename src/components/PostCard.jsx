@@ -12,10 +12,10 @@ const PostCard = (props) => {
     return (
 
         <div className='flex justify-center mt-10'>
-            <div className="relative flex max-w-[58rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+            <div className="relative flex max-w-[58rem] flex-col rounded-xl bg-white bg-clip-border  shadow-md">
                 <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none flex justify-center">
                     <img
-                        className='max-w-[44rem]'
+                        className=''
                         src={post.image}
                         alt="imagen post"
                     />
@@ -29,17 +29,24 @@ const PostCard = (props) => {
                     </p>
                 </div>
                 <div className="flex items-center justify-between p-6">
-                    <div className="flex items-center ">
+                    <div className="flex items-center mt-10">
                         <img
-                            alt="natali craig"
+                            alt="imagen autor"
                             src={post.idUser.image}
                             className="relative inline-block h-9 w-9 rounded-full border-2 border-white object-cover object-center hover:z-10"
                             data-tooltip-target="author-1"
                         />
-                        <span className='ml-2'>{post.idUser.userName}</span>
+                        <span className='ml-2 text-lg'>{post.idUser.userName}</span>
                     </div>
-                    <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased">
-                        January 10
+                    <div className='flex '>
+                        <Link href={post.video} className='mt-2 underline text-center text-sky-900 text-xl' target="_blank">
+                           
+                                Video Relacionado
+                            
+                        </Link>
+                    </div>
+                    <p className="block font-sans text-base font-normal leading-relaxed text-inherit antialiased mt-10 ">
+                        {post.idUser.createdAt.slice(0, -14)}
                     </p>
                 </div>
             </div>
