@@ -13,9 +13,9 @@ const Navbar = () => {
 
   return (
 
-    <header className="bg-dark">
-      <nav className="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8">
-        <div className="hidden lg:flex lg:gap-x-12 text-white">
+    <header className="">
+      <nav className="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8 bg-dark">
+        <div className="hidden lg:flex lg:gap-x-12 text-white ">
           <Link
             href="/"
             className="text-xl hover:text-jaal-line duration-300"
@@ -98,9 +98,6 @@ const Navbar = () => {
                 <span className="text-center mr-4"> {session?.user?.userName}</span>
 
               </div>
-
-
-
               <Link
                 href="/dashboard"
                 className="btn btn-success btn-sm mr-4 max-w-24 text-lg  text-center"
@@ -137,8 +134,8 @@ const Navbar = () => {
           )}
         </div>
         {isClick && (
-          <div className='lg:hidden bg-slate-600'>
-            <ul className='text-slate-950 z-30 lg:flex lg:items-center  lg:static absolute  w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 opacity-75 lg:opacity-100 top[-400px] transition-all ease-in duration-1000 bg-slate-900'>
+          <div className='lg:hidden '>
+            <ul className='text-slate-950 z-10 lg:flex lg:items-center  lg:static absolute  w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 opacity-75 lg:opacity-100 top[-400px] transition-all ease-in duration-1000  '>
               <li className='mx-4 my-6 lg:my-0'>
                 <Link className='text-xl hover:text-jaal-line duration-400 ' href="/">
                   <button onClick={toggleNavbar}>
