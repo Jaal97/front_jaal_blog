@@ -15,28 +15,28 @@ const Navbar = () => {
 
     <header className="">
       <nav className="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8 bg-dark">
-        <div className="hidden lg:flex lg:gap-x-12 text-white ">
+        <div className="hidden lg:flex lg:gap-x-12 text-white">
           <Link
             href="/"
-            className="text-xl hover:text-jaal-line duration-300"
+            className="text-xl hover:text-lime-500 duration-300"
           >
             Home
           </Link>
           <Link
             href="/videojuegos"
-            className="text-xl hover:text-jaal-line duration-300"
+            className="text-xl hover:text-lime-500 duration-300"
           >
             Videojuegos
           </Link>
           <Link
             href="/seriesypeliculas"
-            className="text-xl hover:text-jaal-line duration-300"
+            className="text-xl hover:text-lime-500 duration-300"
           >
             Series y Películas
           </Link>
           <Link
             href="/tecnologia"
-            className="text-xl hover:text-jaal-line duration-300"
+            className="text-xl hover:text-lime-500 duration-300"
           >
             Tecnologia
           </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
         <span className='text-3xl cursor-pointer lg:hidden mx-2 block'>
           <button onClick={toggleNavbar}>
             {isClick ? (
-              <svg className="h-6 w-6 text-white"
+              <svg className="h-6 w-6 text-white border-black mb-3"
                 xmlns="http://www.w3.org/2000/svg"
 
                 fill="none"
@@ -135,30 +135,84 @@ const Navbar = () => {
         </div>
         {isClick && (
           <div className='lg:hidden '>
-            <ul className='text-slate-950 z-10 lg:flex lg:items-center  lg:static absolute  w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 opacity-75 lg:opacity-100 top[-400px] transition-all ease-in duration-1000  '>
+            <div className=" lg:flex z-20 lg:items-center  lg:static absolute  w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 opacity-82 lg:opacity-100 top[-400px] transition-all ease-in duration-1000 bg-slate-50  text-white text-xl ">
+              {session?.user ? (
+                <>
+                  <div className=" flex mb-2 text-slate-900" >
+                    <img src={session?.user?.image} alt="image_profile" className="rounded-circle max-h-10 mr-2" width={32} />
+                    <span className="text-center mr-4"> {session?.user?.userName}</span>
+
+                  </div>
+                  <button onClick={toggleNavbar}>
+                    <Link
+                      href="/dashboard"
+                      className="btn btn-success btn-sm mr-4 max-w-24 text-lg  text-center"
+                    >
+                      Mi Perfil
+                    </Link>
+                  </button>
+
+                  <button
+
+                    onClick={() => signOut()}
+                    className="btn btn-danger btn-sm  max-w-24 text-lg text-justify "
+                  >
+                    <button onClick={toggleNavbar}>
+                      Sign Out
+                    </button>
+
+                  </button>
+
+                </>
+
+              ) : (
+                <>
+                  <button onClick={toggleNavbar}>
+                    <Link
+                      href="/login"
+                      className="btn btn-success btn-sm mr-4 text-lg"
+                    >
+                      Login
+                    </Link>
+                  </button>
+
+                  <button onClick={toggleNavbar}>
+                    <Link
+                      href="/register"
+                      className="btn btn-primary btn-sm text-lg"
+                    >
+                      Register
+                    </Link>
+
+                  </button>
+                </>
+              )}
+            </div>
+            <ul className='text-slate-950 z-10 lg:flex lg:items-center  lg:static absolute  w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 top[-400px] transition-all ease-in duration-1000  bg-slate-50 mt-20'>
+
               <li className='mx-4 my-6 lg:my-0'>
-                <Link className='text-xl hover:text-jaal-line duration-400 ' href="/">
+                <Link className='text-xl hover:text-lime-600 duration-400 ' href="/">
                   <button onClick={toggleNavbar}>
                     Home
                   </button>
                 </Link>
               </li>
               <li className='mx-4 my-6 md:my-0'>
-                <Link className='text-xl hover:text-jaal-line duration-400' href="/videojuegos">
+                <Link className='text-xl hover:text-lime-600 duration-400' href="/videojuegos">
                   <button onClick={toggleNavbar}>
                     Videojuegos
                   </button>
                 </Link>
               </li>
               <li className='mx-4 my-6 lg:my-0'>
-                <Link className='text-xl hover:text-jaal-line duration-400' href="/seriesypeliculas">
+                <Link className='text-xl hover:text-lime-600 duration-400' href="/seriesypeliculas">
                   <button onClick={toggleNavbar}>
                     Series y Películas
                   </button>
                 </Link>
               </li>
               <li className='mx-4 my-6 lg:my-0'>
-                <Link className='text-xl hover:text-jaal-line duration-400' href="/tecnologia">
+                <Link className='text-xl hover:text-lime-600 duration-400' href="/tecnologia">
                   <button onClick={toggleNavbar}>
                     Tecnologia
                   </button>
@@ -168,6 +222,7 @@ const Navbar = () => {
                             Get Started
                         </button> */}
             </ul>
+
           </div>
         )}
 
