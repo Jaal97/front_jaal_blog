@@ -24,9 +24,12 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
-      <pre>
+      {
+        JSON.stringify(session, null, 2)
+      }
+      {/* <pre>
         <code>{JSON.stringify(session, null, 2)}</code>
-      </pre>
+      </pre> */}
       <button onClick={getPosts} className="btn btn-primary">
         Get Posts
       </button>
