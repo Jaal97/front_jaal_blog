@@ -94,7 +94,7 @@ const Navbar = () => {
           {session?.user ? (
             <>
               <div className=" flex " >
-                <img src={session?.user?.image} alt="image_profile" className="rounded-circle max-h-10 mr-2" width={40} />
+                <img src={session?.user?.image} alt="image_profile" className="inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={40} />
                 <span className="text-center mr-4"> {session?.user?.userName}</span>
 
               </div>
@@ -139,7 +139,7 @@ const Navbar = () => {
               {session?.user ? (
                 <>
                   <div className=" flex mb-2 text-slate-900" >
-                    <img src={session?.user?.image} alt="image_profile" className="rounded-circle max-h-10 mr-2" width={32} />
+                    <img src={session?.user?.image} alt="image_profile" className="inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={32} />
                     <span className="text-center mr-4"> {session?.user?.userName}</span>
 
                   </div>
