@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { useState, useEffect, ChangeEvent } from 'react'
 import Link from "next/link";
 // import { useRouter } from "next/navigation";
-
+import { UserUpdate } from "@/interface/user.interface";
 
 const Dashboard = () => {
 
@@ -11,16 +11,17 @@ const Dashboard = () => {
   const [errors, setErrors] = useState<string[]>([]);
   // const router = useRouter();
   const [data, setData] = useState([]);
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState<any>({})
   const [isLoading, setLoading] = useState(true)
 
+  //Abrir o cerrar menu de edicción
   const [isClick, setisClick] = useState(false);
-  const toggleNavbar = () => {
+  const toggleEdit = () => {
     setisClick(!isClick)
   }
 
 
-
+  //Obteniendo id del usuario
   let idUser = session?.user.id;
   let urlPosts = `${process.env.NEXT_PUBLIC_API_URL}/posts/user/${idUser}`;
   let urlUser = `${process.env.NEXT_PUBLIC_API_URL}/users/${idUser}`;
@@ -31,8 +32,6 @@ const Dashboard = () => {
     aboutMe: " ",
     userName: ""
   });
-
-
 
 
   useEffect(() => {
@@ -100,14 +99,12 @@ const Dashboard = () => {
         setLoading(false)
       })
 
-    location.reload();
-    // router.push('/');
-    // router.refresh();
     const responseAPI = await res.json();
     if (!res.ok) {
       setErrors(responseAPI.message.split(","));
       return;
     }
+    location.reload();
   }
 
 
@@ -146,7 +143,6 @@ const Dashboard = () => {
                   }
 
                   {
-
                     userUpdate.aboutMe === "" ?
                       <h1 className="text-xl font-bold">
                         {session?.user?.userName}
@@ -156,13 +152,12 @@ const Dashboard = () => {
                       <h1 className="text-xl font-bold">
                         {user['userName']}
                       </h1>
-
                   }
 
                   <p className="text-gray-700 text-md uppercase">{user?.role}</p>
 
                   <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" onClick={toggleNavbar}>Editar</button>
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" onClick={toggleEdit}>Editar</button>
                     <Link href="/createdpost" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">New Post</Link>
                   </div>
                 </div>
@@ -197,7 +192,6 @@ const Dashboard = () => {
             <div className="col-span-4 sm:col-span-9">
               <div className="bg-white shadow rounded-lg p-6 flex justify-center w-full">
 
-
                 {
                   isClick ? (
                     <form className="mt-20 xl:w-3/5" onSubmit={handleSubmit} >
@@ -220,7 +214,6 @@ const Dashboard = () => {
                         onChange={handleChange}
                         value={userUpdate.aboutMe}
                       >
-
                       </textarea>
 
                       <p className="text-xl font-medium">Nombre de usuario (Debe ser unico)</p>

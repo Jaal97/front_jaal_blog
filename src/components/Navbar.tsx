@@ -13,8 +13,8 @@ const Navbar = () => {
   }
 
   const [isLoading, setLoading] = useState(true)
-  const [user, setUser] = useState({
-  
+  const [user, setUser] = useState<any>({
+    
   })
 
   let idUser = session?.user.id;
@@ -259,9 +259,6 @@ const Navbar = () => {
                   </button>
                 </Link>
               </li>
-              {/* <button className='bg-cyan-500 text-white font-[Poppins] duration-500 px-6 py-2 mx-4 hover:bg-cyan-400 rounded'>
-                            Get Started
-                        </button> */}
             </ul>
 
           </div>

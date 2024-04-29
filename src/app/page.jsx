@@ -1,7 +1,5 @@
 "use client";
 
-// import ButtonAuth from '@/components/ButtonAuth'
-
 import Posts from './posts/page';
 
 

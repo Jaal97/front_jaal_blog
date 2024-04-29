@@ -17,7 +17,7 @@ const CreatedPost = () => {
   const [image, setImage] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [video, setVideo] = useState<string>("");
-  const router = useRouter();
+  // const router = useRouter();
 
 
   let url = `${process.env.NEXT_PUBLIC_API_URL}/categories`
@@ -56,43 +56,22 @@ const CreatedPost = () => {
         }),
 
       }
-
-
     );
 
     const responseAPI = await res.json();
-
-
-    // setErrors(responseNextAuth.error.split(","));
 
     if (!res.ok) {
       setErrors(responseAPI.message.split(","));
       return;
     }
 
-    // if (!res.ok) {
-    //   setErrors(responseAPI.message);
-    //   return;
-    // }
-
-    // const responseNextAuth = await signIn("credentials", {
-    //   userName,
-    //   password,
-    //   redirect: false,
-    // });
-
-
-    // if (responseNextAuth?.error) {
-    //   setErrors(responseNextAuth.error.split(","));
-    //   return;
-    // }
 
   };
 
   if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900' >Loading...</p>
   if (!categories) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>No data</p>
 
-  console.log(errors);
+  // console.log(errors);
 
   return (
     <div className='flex justify-center w-screen  bg-gradient-to-bl from-blue-50 to-violet-50'>
@@ -122,8 +101,6 @@ const CreatedPost = () => {
               ))
             }
           </select>
-
-
           <p className="text-xl font-medium m-2">Imagen (URL)</p>
           <input
             type="text"
