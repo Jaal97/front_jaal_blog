@@ -2,7 +2,9 @@
 
 import { signOut, useSession, } from "next-auth/react";
 import Link from "next/link";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+
 const Navbar = () => {
   const { data: session } = useSession();
   const [isClick, setisClick] = useState(false);
@@ -10,6 +12,30 @@ const Navbar = () => {
     setisClick(!isClick)
   }
 
+  const [isLoading, setLoading] = useState(true)
+  const [user, setUser] = useState({
+  
+  })
+
+  let idUser = session?.user.id;
+  let urlUser = `${process.env.NEXT_PUBLIC_API_URL}/users/${idUser}`;
+
+
+  useEffect(() => {
+    fetch(urlUser, {
+      method: 'GET',
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((user) => {
+        setUser(user)
+        setLoading(false)
+      })
+  }, [idUser, urlUser])
+
+
+  // if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>Loading...</p>
+  
 
   return (
 
@@ -94,8 +120,15 @@ const Navbar = () => {
           {session?.user ? (
             <>
               <div className=" flex " >
-                <img src={session?.user?.image} alt="image_profile" className="inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={40} />
-                <span className="text-center mr-4"> {session?.user?.userName}</span>
+                {
+                  user.image === "" ?
+                  <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"  className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" alt="profile" />
+                  :
+                  <img src={user.image} alt="image_profile" className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={40} />
+
+                }
+                
+                <span className="text-center mr-4"> {user.userName}</span>
 
               </div>
               <Link
@@ -139,8 +172,16 @@ const Navbar = () => {
               {session?.user ? (
                 <>
                   <div className=" flex mb-2 text-slate-900" >
-                    <img src={session?.user?.image} alt="image_profile" className="inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={32} />
-                    <span className="text-center mr-4"> {session?.user?.userName}</span>
+
+                    {
+                      user.image === "" ?
+                        <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" alt="profile" />
+                      :
+                      <img src={user.image} alt="image_profile" className="bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={32} />
+                    }
+
+                   
+                    <span className="text-center mr-4"> {user.userName}</span>
 
                   </div>
                   <button onClick={toggleNavbar}>

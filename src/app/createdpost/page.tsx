@@ -10,7 +10,7 @@ const CreatedPost = () => {
   const [categories, setCategories] = useState([])
   const [isLoading, setLoading] = useState(true)
   const { data: session } = useSession();
-  // const [errors, setErrors] = useState<string[]>([]);
+  const [errors, setErrors] = useState<string[]>([]);
   const [idCategory, setIdCategory] = useState<string>("");
   const [idUser, setIdUser] = useState<string>(`${session?.user.id}`);
   const [title, setTitle] = useState<string>("");
@@ -19,25 +19,25 @@ const CreatedPost = () => {
   const [video, setVideo] = useState<string>("");
   const router = useRouter();
 
- 
+
   let url = `${process.env.NEXT_PUBLIC_API_URL}/categories`
-    useEffect(() => {
-      fetch(url, {
-        method: 'GET',
-        headers: {
-          "Content-Type": "application/json",
-        },
+  useEffect(() => {
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data)
+        setLoading(false)
       })
-        .then((res) => res.json())
-        .then((data) => {
-          setCategories(data)
-          setLoading(false)
-        })
-    }, [])
+  }, [idUser, session])
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // setErrors([]);
+    setErrors([]);
 
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/posts`,
@@ -57,24 +57,42 @@ const CreatedPost = () => {
 
       }
 
+
     );
 
     const responseAPI = await res.json();
-    
-    console.log(responseAPI);
-    // const responseAPI = await res.json();
+
+
+    // setErrors(responseNextAuth.error.split(","));
+
+    if (!res.ok) {
+      setErrors(responseAPI.message.split(","));
+      return;
+    }
 
     // if (!res.ok) {
     //   setErrors(responseAPI.message);
     //   return;
     // }
-    // router.push("/dashboard");
+
+    // const responseNextAuth = await signIn("credentials", {
+    //   userName,
+    //   password,
+    //   redirect: false,
+    // });
+
+
+    // if (responseNextAuth?.error) {
+    //   setErrors(responseNextAuth.error.split(","));
+    //   return;
+    // }
+
   };
 
-  if (isLoading) return <p>Loading...</p>
-  if (!categories) return <p>No data</p>
-  
-  console.log(idCategory);
+  if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900' >Loading...</p>
+  if (!categories) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>No data</p>
+
+  console.log(errors);
 
   return (
     <div className='flex justify-center w-screen  bg-gradient-to-bl from-blue-50 to-violet-50'>
@@ -93,19 +111,19 @@ const CreatedPost = () => {
             onChange={(event) => setTitle(event.target.value)}
           />
           <p className="text-xl font-medium block m-2  text-gray-900">Selecciona la Categoría</p>
-          
-          <select 
+
+          <select
             name="Categorias"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 fon-medium mt-2 mb-2" 
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 fon-medium mt-2 mb-2"
             onChange={(event) => setIdCategory(event.target.value)}>
             {
-            categories.map(cat => (
-              <option key={cat['_id']} value={cat['_id']}>{cat['name']} </option>
-            ))
+              categories.map(cat => (
+                <option key={cat['_id']} value={cat['_id']}>{cat['name']} </option>
+              ))
             }
           </select>
 
-          
+
           <p className="text-xl font-medium m-2">Imagen (URL)</p>
           <input
             type="text"
@@ -133,6 +151,17 @@ const CreatedPost = () => {
             value={video}
             onChange={(event) => setVideo(event.target.value)}
           />
+          <div>
+            {errors.length > 0 && (
+              <div className="alert alert-danger mt-2">
+                <ul className="mb-0">
+                  {errors.map((error) => (
+                    <li key={error}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
           <button
             type="submit"
             className="btn btn-primary text-xl font-medium mt-2 mb-2"
