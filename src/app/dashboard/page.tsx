@@ -131,7 +131,7 @@ const Dashboard = () => {
                     user.image === "" ?
                       <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" className="  bg-gray-300 w-32 h-32 p-1  rounded-full mb-4 shrink-0" alt="profile" />
                       :
-                      userUpdate.aboutMe === "" ?
+                      userUpdate.image === "" ?
                         <img src={session?.user?.image} className="w-32 h-32 p-1 bg-gray-300 rounded-full mb-4 shrink-0">
 
                         </img>
@@ -143,7 +143,7 @@ const Dashboard = () => {
                   }
 
                   {
-                    userUpdate.aboutMe === "" ?
+                    userUpdate.userName === "" ?
                       <h1 className="text-xl font-bold">
                         {session?.user?.userName}
                       </h1>
@@ -161,9 +161,18 @@ const Dashboard = () => {
                     <Link href="/createdpost" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">New Post</Link>
                   </div>
                 </div>
-                <div className="flex w-full">
-                  <div className="flex flex-col w-6/12">
-                    <h2 className="text-gray-700 uppercase font-bold tracking-wider mb-2 mt-4 text-xl">Posts</h2>
+                <div className="flex ">
+                  <div className="flex flex-col w-full">
+                    <h2 className="text-gray-700 uppercase font-bold tracking-wider mb-2 mt-4 text-xl text-center">Sobre mí</h2>
+
+                    {
+                      userUpdate.aboutMe === "" || !isClick ?
+                        <p className="text-lg mt-1 ">{user.aboutMe}</p>
+
+                        :
+                        <p className=" text-lg mt-1 ">{userUpdate.aboutMe}</p>
+                    }
+                    <h2 className="text-gray-700 uppercase font-bold tracking-wider mb-2 mt-4 text-xl text-center">Posts</h2>
                     <ul>
                       {
                         data.map(dat => (
@@ -173,18 +182,7 @@ const Dashboard = () => {
                     </ul>
 
                   </div>
-                  <div className="flex flex-col w-6/12">
-                    <h2 className="text-gray-700 uppercase font-bold tracking-wider mb-2 mt-4 text-xl">About Me</h2>
 
-                    {
-                      userUpdate.aboutMe === "" || !isClick ?
-                        <p className="text-lg mt-1 ">{user.aboutMe}</p>
-
-                        :
-                        <p className=" text-lg mt-1 ">{userUpdate.aboutMe}</p>
-                    }
-
-                  </div>
                 </div>
 
               </div>

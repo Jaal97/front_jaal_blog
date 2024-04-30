@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import Card from '@/components/Card'
+// import { contentSpaces } from '../../utils/contentSpaces'
 
 function Posts(props) {
   let url = props.url;
   let lim = props.limite;
 
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -20,11 +21,13 @@ function Posts(props) {
         setData(data)
         setLoading(false)
       })
-  }, [])
+  }, [url, lim])
 
   if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>Loading...</p>
   if (!data) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>No data</p>
 
+  // const reversedData = contentSpaces(data)
+  console.log(data.slice(0, lim).toReversed());
   
   return (
 
@@ -34,7 +37,7 @@ function Posts(props) {
           {typeof data === "object"
 
             ?
-            data.slice(0, lim).map(dat => (
+            data.toReversed().slice(0, lim).map(dat => (
               <Card post={dat} key={dat._id} />
             ))
             : <Card post={data} key={data._id} />
