@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/context/SessionAuthProvider.tsx", "src/app/posts/page.jsx", "src/app/page.jsx", "src/components/Card.jsx", "src/app/createdpost/page.jsx", "src/app/dashboard/page.tsx", "src/components/UseForm.jsx", "src/utils/contentSpaces.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/context/SessionAuthProvider.tsx", "src/app/posts/page.jsx", "src/app/page.jsx", "src/components/Card.jsx", "src/app/createdpost/page.jsx", "src/app/dashboard/page.tsx", "src/components/UseForm.jsx", "src/utils/contentSpaces.js", "src/components/UpdatedPost.tsx"],
   "exclude": ["node_modules"]
 }

@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { useState, useEffect, ChangeEvent } from 'react'
 import Link from "next/link";
 // import { useRouter } from "next/navigation";
-import { UserUpdate } from "@/interface/user.interface";
+
 
 const Dashboard = () => {
 
