@@ -23,16 +23,16 @@ function Posts(props) {
       })
   }, [url, lim])
 
-  if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]'>Loading...</p>
-  if (!data) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]'>No data</p>
+  if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-screen'>Loading...</p>
+  if (!data) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-screen'>No data</p>
 
 
 
   return (
 
-    <div className="bg-gradient-to-bl from-blue-50 to-violet-50 flex items-center justify-center h-[77.7vh]">
+    <div className="bg-gradient-to-bl from-blue-50 to-violet-50 flex items-center justify-center">
       <div className="container mx-auto ">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 mb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 mb-56 mt-10">
           {typeof data === "object"
 
             ?

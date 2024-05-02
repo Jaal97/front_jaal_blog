@@ -165,8 +165,8 @@ const UpdatedPost = (props: any) => {
     let catFilter = categories.filter(category => category._id != postUpdate.idCategory);
 
 
-    if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900' >Loading...</p>
-    if (!postUpdate) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>No data</p>
+    if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]' >Loading...</p>
+    if (!postUpdate) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]'>No data</p>
 
 
     // console.log(errors)

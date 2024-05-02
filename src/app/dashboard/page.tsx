@@ -114,16 +114,16 @@ const Dashboard = () => {
   }
 
 
-  if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]'>Loading...</p>
-  if (!data) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]'>No data</p>
+  if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-screen'>Loading...</p>
+  if (!data) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-screen'>No data</p>
 
 
   return (
     <div>
-      <div className="bg-gray-100 h-[77.7vh]">
-        <div className="container mx-auto py-8">
-          <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
-            <div className="col-span-4 sm:col-span-3">
+      <div className="bg-gray-100 ">
+        <div className="container mx-auto py-8 ">
+          <div className="grid grid-cols-4 sm:grid-cols-12  gap-6 px-4 xl:mb-24">
+            <div className="col-span-4 md:col-span-3">
               <div className="bg-white shadow rounded-lg p-6">
                 <div className="flex flex-col items-center">
 
@@ -157,8 +157,13 @@ const Dashboard = () => {
                   <p className="text-gray-700 text-md uppercase">{user?.role}</p>
 
                   <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" onClick={toggleEdit}>Editar</button>
-                    <Link href="/createdpost" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">New Post</Link>
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded flex" title="Editar" onClick={toggleEdit}>
+                      <img src="https://cdn-icons-png.flaticon.com/512/4226/4226577.png" className="w-8 shrink-0 " alt="edit" />
+                    </button>
+                    <Link href="/createdpost" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded flex" title="Nuevo Post">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8103/8103784.png" className="w-8 shrink-0 " alt="edit" />
+                      
+                    </Link>
                   </div>
                 </div>
                 <div className="flex ">
@@ -187,11 +192,12 @@ const Dashboard = () => {
 
               </div>
             </div>
-            <div className="col-span-4 sm:col-span-9">
-              <div className="bg-white shadow rounded-lg p-6 flex justify-center w-full">
+            <div className="col-span-4 sm:col-span-8 md:col-span-9  w-full">
+              <div className="bg-white shadow rounded-lg p-6 flex justify-center ">
 
                 {
                   isClick ? (
+                    
                     <form className="mt-20 xl:w-3/5" onSubmit={handleSubmit} >
                       <h1 className="text-center text-2xl font-bold mb-2 text-blue-600">Actualiza Tu Información</h1>
                       <p className="text-xl font-medium">Imagen (URL)</p>
