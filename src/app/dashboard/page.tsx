@@ -110,17 +110,17 @@ const Dashboard = () => {
 
 
   if (status === "loading") {
-    return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>Loading...</p>;
+    return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]'>Loading...</p>;
   }
 
 
-  if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>Loading...</p>
-  if (!data) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>No data</p>
+  if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]'>Loading...</p>
+  if (!data) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]'>No data</p>
 
 
   return (
     <div>
-      <div className="bg-gray-100">
+      <div className="bg-gray-100 h-[77.7vh]">
         <div className="container mx-auto py-8">
           <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
             <div className="col-span-4 sm:col-span-3">

@@ -42,8 +42,8 @@ const PostCard = (props) => {
 
     return (
 
-        <div className='flex justify-center mt-10'>
-            <div className="relative flex max-w-[58rem] flex-col rounded-xl bg-white bg-clip-border  shadow-md">
+        <div className='flex justify-center bg-gradient-to-bl from-blue-50 to-violet-50'>
+            <div className="relative flex max-w-[58rem] flex-col rounded-xl bg-white bg-clip-border  shadow-md mt-10 mb-10">
                 <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none flex justify-center w-full">
                     {
                         !post.image || post.image === null
@@ -60,8 +60,6 @@ const PostCard = (props) => {
                                 alt="imagen post"
                             />
                     }
-
-
                 </div>
                 <div className='flex  justify-between mt-4 pr-6 pl-6'>
 
@@ -76,7 +74,7 @@ const PostCard = (props) => {
                     {
                         rol === "admin"
                             ? <div className=''>
-                                <Link href={'/'} className='bg-red-600 w-6  h-2 p-2.5 text-white rounded-md'>Eliminar</Link>
+                                <Link href={`/elimpost/${post._id}`} className='bg-red-600 w-6  h-2 p-2.5 text-white rounded-md'>Eliminar</Link>
                             </div>
                             : <p></p>
                     }

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 // import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const UpdatedPost = (props:any) => {
+const UpdatedPost = (props: any) => {
 
     //obtener la id del post y saber si es actualizar o crear
     const idPost = props.id;
@@ -95,25 +95,20 @@ const UpdatedPost = (props:any) => {
                 })
         }
 
-
         setIdAutenticado(`${session?.user.id}`)
         postUpdate['idUser'] = idAutenticado;
     }, [idAutenticado, session])
 
 
-
-
-
-    const handleChange = (e:any) => {
+    const handleChange = (e: any) => {
         setPostUpdate({ ...postUpdate, [e.target.name]: e.target.value })
     };
 
 
-    const handleSubmit = async (event:any) => {
+    const handleSubmit = async (event: any) => {
 
         event.preventDefault();
         setErrors([]);
-
 
         if (isUp) {
             const res = await fetch(
@@ -129,12 +124,13 @@ const UpdatedPost = (props:any) => {
                 }
 
             );
-            // router.push('/')
+            
             const responseAPI = await res.json();
             if (!res.ok) {
                 setErrors(responseAPI.message.split(","));
                 return;
             }
+            router.push('/')
         }
 
         if (!isUp) {
@@ -146,19 +142,19 @@ const UpdatedPost = (props:any) => {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify(
-                       postUpdate
+                        postUpdate
                     ),
 
                 }
 
             );
-             // router.push('/')
-             const responseAPI = await res.json();
-             if (!res.ok) {
-                 setErrors(responseAPI.message.split(","));
-                 return;
-             }
 
+            const responseAPI = await res.json();
+            if (!res.ok) {
+                setErrors(responseAPI.message.split(","));
+                return;
+            }
+            router.push('/')
         }
 
 
@@ -167,21 +163,18 @@ const UpdatedPost = (props:any) => {
 
     //Filtro de categorias 
     let catFilter = categories.filter(category => category._id != postUpdate.idCategory);
-    // console.log(catFilter);
 
 
     if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900' >Loading...</p>
     if (!postUpdate) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>No data</p>
 
 
-    console.log(errors)
+    // console.log(errors)
 
     return (
-        <div className='flex justify-center w-screen  bg-gradient-to-bl from-blue-50 to-violet-50'>
-            <div className=" flex  flex-col rounded-xl bg-lime-50 bg-clip-border  shadow-md md:w-2/4 lg:w-1/3 p-4 mt-6">
-
+        <div className='flex justify-center w-screen  bg-gradient-to-bl from-blue-50 to-violet-50 h-[77.7vh]'>
+            <div className=" flex  flex-col rounded-xl bg-lime-50 bg-clip-border  shadow-md md:w-2/4 lg:w-1/3 p-4 mt-6 mb-6">
                 <form className="mt-4" onSubmit={handleSubmit}>
-
                     {
                         isUp
 
@@ -189,8 +182,6 @@ const UpdatedPost = (props:any) => {
 
                             : <h1 className="text-center text-2xl font-bold mb-2"> Crear Nuevo Post </h1>
                     }
-
-
                     <p className="text-xl font-medium m-2">Titulo</p>
                     <input
                         type="text"

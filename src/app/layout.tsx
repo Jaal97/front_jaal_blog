@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SessionAuthProvider from "../context/SessionAuthProvider";
+import Footer from '../components/Footer'
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,11 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className} >
-        <main className="">
+        <main className="h-screen">
           <SessionAuthProvider>
             <Navbar />
-            
+
             {children}
+            <div className="">
+              <Footer />
+            </div>
           </SessionAuthProvider>
         </main>
       </body>

@@ -18,7 +18,7 @@ const Card = (props) => {
                         !post.image || post.image === null
 
                             ? <img
-                                className="w-full h-48 rounded-md object-cover"
+                                className="w-full h-48 rounded-md object-cover "
                                 src="https://ticsluishurtadoconta.files.wordpress.com/2015/12/recursos-blogs.jpg"
                                 alt="imagen post"
                             />
