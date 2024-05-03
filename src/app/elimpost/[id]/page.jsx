@@ -12,7 +12,6 @@ const page = (props) => {
 
   return (
     <div>
-      
       <DeletedPost id={id} />
     </div>
   )

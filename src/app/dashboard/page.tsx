@@ -110,11 +110,15 @@ const Dashboard = () => {
 
 
   if (status === "loading") {
-    return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-[77.7vh]'>Loading...</p>;
+    return
   }
 
 
-  if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-screen'>Loading...</p>
+  if (isLoading) return 
+  <div className='flex items-center justify-center min-h-screen'>
+    <div className="border-top-color:transparent w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
+    <p className="ml-2">cargando...</p>
+  </div>
   if (!data) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-screen'>No data</p>
 
 
@@ -161,8 +165,8 @@ const Dashboard = () => {
                       <img src="https://cdn-icons-png.flaticon.com/512/4226/4226577.png" className="w-8 shrink-0 " alt="edit" />
                     </button>
                     <Link href="/createdpost" className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded flex" title="Nuevo Post">
-                    <img src="https://cdn-icons-png.flaticon.com/512/8103/8103784.png" className="w-8 shrink-0 " alt="edit" />
-                      
+                      <img src="https://cdn-icons-png.flaticon.com/512/8103/8103784.png" className="w-8 shrink-0 " alt="edit" />
+
                     </Link>
                   </div>
                 </div>
@@ -197,7 +201,7 @@ const Dashboard = () => {
 
                 {
                   isClick ? (
-                    
+
                     <form className="mt-20 xl:w-3/5" onSubmit={handleSubmit} >
                       <h1 className="text-center text-2xl font-bold mb-2 text-blue-600">Actualiza Tu Información</h1>
                       <p className="text-xl font-medium">Imagen (URL)</p>

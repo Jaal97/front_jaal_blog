@@ -21,9 +21,8 @@ const DeletedPost = (props: any) => {
         })
 
         router.push('/');
-        
-    }, [idPost, token])
 
+    }, [idPost, token])
 
 
     return (
