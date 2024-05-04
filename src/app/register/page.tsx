@@ -57,8 +57,8 @@ const RegisterPage = (props:any) => {
   };
 
   return (
-    <div className='flex justify-center w-screen  bg-gradient-to-bl from-blue-50 to-violet-50'>
-      <div className=" flex  flex-col rounded-xl bg-sky-50 bg-clip-border  shadow-md md:w-4/12 lg:w-3/12 p-4 mt-6">
+    <div className='flex justify-center w-screen  h-[77.7vh] bg-gradient-to-bl from-blue-50 to-violet-50'>
+      <div className=" flex  flex-col rounded-xl bg-sky-50 bg-clip-border  shadow-md md:w-4/12 lg:w-3/12 p-4 mt-10 mb-10">
 
         <form className="mt-4" onSubmit={handleSubmit}>
           <h1 className="text-center text-2xl font-bold mb-2">Registrate</h1>

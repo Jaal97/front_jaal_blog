@@ -65,16 +65,20 @@ const PostCard = (props) => {
 
                     {
                         idSession === idAutor || rol === "admin"
-                            ? <div className=''>
-                                <Link href={`/editpost/${post._id}`} className='bg-green-500 w-6  h-2 p-2.5 text-white rounded-md'>Editar</Link>
-                            </div>
+                            ?
+
+                            <Link href={`/editpost/${post._id}`} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded flex" title="Editar" >
+                                <img src="https://cdn-icons-png.flaticon.com/512/4226/4226577.png" className="w-8 shrink-0 " alt="edit"/>
+                            </Link>
                             : <p></p>
                     }
 
                     {
                         rol === "admin"
                             ? <div className=''>
-                                <Link href={`/elimpost/${post._id}`} className='bg-red-600 w-6  h-2 p-2.5 text-white rounded-md'>Eliminar</Link>
+                                <Link href={`/elimpost/${post._id}`} className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded flex" title="Eliminar">
+                                <img src="https://cdn1.iconfinder.com/data/icons/prettyoffice8/256/Trash-can.png" className="w-8 shrink-0 " alt="eliminar"/>
+                                </Link>
                             </div>
                             : <p></p>
                     }

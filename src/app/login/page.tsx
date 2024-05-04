@@ -29,8 +29,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex justify-center w-screen  bg-gradient-to-bl from-blue-50 to-violet-50">
-      <div className="flex  flex-col rounded-xl bg-green-100 bg-clip-border  shadow-md md:w-4/12 lg:w-3/12 p-4 mt-6">
+    <div className="h-[77.7vh] bg-gradient-to-bl from-blue-50 to-violet-50 w-full">
+      <div className="flex justify-center w-screen  bg-gradient-to-bl from-blue-50 to-violet-50 ">
+      <div className="flex  flex-col rounded-xl bg-green-100 bg-clip-border  shadow-md md:w-4/12 lg:w-3/12 p-4 mt-12">
       <h1 className="text-center text-2xl font-bold mb-2">Iniciar Sesión</h1>
       <form onSubmit={handleSubmit}>
       <p className="text-xl font-medium">Username</p>
@@ -71,6 +72,8 @@ const LoginPage = () => {
       </div>
       
     </div>
+    </div>
+    
   );
 };
 export default LoginPage;

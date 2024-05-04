@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const [isLoading, setLoading] = useState(true)
   const [user, setUser] = useState<any>({
-    
+
   })
 
   let idUser = session?.user.id;
@@ -35,7 +35,7 @@ const Navbar = () => {
 
 
   // if (isLoading) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900'>Loading...</p>
-  
+
 
   return (
 
@@ -122,12 +122,12 @@ const Navbar = () => {
               <div className=" flex " >
                 {
                   user.image === "" ?
-                  <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"  className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" alt="profile" />
-                  :
-                  <img src={user.image} alt="image_profile" className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={40} />
+                    <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" alt="profile" />
+                    :
+                    <img src={user.image} alt="image_profile" className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={40} />
 
                 }
-                
+
                 <span className="text-center mr-4"> {user.userName}</span>
 
               </div>
@@ -176,11 +176,11 @@ const Navbar = () => {
                     {
                       user.image === "" ?
                         <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" alt="profile" />
-                      :
-                      <img src={user.image} alt="image_profile" className="bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={32} />
+                        :
+                        <img src={user.image} alt="image_profile" className="bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={32} />
                     }
 
-                   
+
                     <span className="text-center mr-4"> {user.userName}</span>
 
                   </div>
@@ -232,30 +232,36 @@ const Navbar = () => {
             <ul className='text-slate-950 z-10 lg:flex lg:items-center  lg:static absolute  w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 top[-400px] transition-all ease-in duration-1000  bg-slate-50 mt-20'>
 
               <li className='mx-4 my-6 lg:my-0'>
-                <Link className='text-xl hover:text-lime-600 duration-400 ' href="/">
-                  <button onClick={toggleNavbar}>
-                    Home
+                <Link className='text-xl hover:text-lime-600 duration-400' href="/">
+                  <button onClick={toggleNavbar} className="flex">
+
+                    <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/home-256.png" className='w-9 sm:w-8' alt="home" title='Home' />
+
+                    <span className="">Home</span>
                   </button>
                 </Link>
               </li>
               <li className='mx-4 my-6 md:my-0'>
                 <Link className='text-xl hover:text-lime-600 duration-400' href="/videojuegos">
-                  <button onClick={toggleNavbar}>
-                    Videojuegos
+                  <button onClick={toggleNavbar} className="flex">
+                    <img src="https://cdn2.iconfinder.com/data/icons/round-set-vol-2/120/gamepad-256.png" alt="videojuegos" className='w-9 sm:w-8' title='Videojuegos' />
+                    <span>Videojuegos</span>
                   </button>
                 </Link>
               </li>
               <li className='mx-4 my-6 lg:my-0'>
                 <Link className='text-xl hover:text-lime-600 duration-400' href="/seriesypeliculas">
-                  <button onClick={toggleNavbar}>
-                    Series y Películas
+                  <button onClick={toggleNavbar} className="flex">
+                    <img src="https://cdn1.iconfinder.com/data/icons/lifestyle-entertainment-vol-3/512/tv_television_show_series-256.png" className='w-9 sm:w-8 ' alt="Series y Peliculas" title='Series y Peliculas' />
+                    <span>Series y Películas</span>
                   </button>
                 </Link>
               </li>
               <li className='mx-4 my-6 lg:my-0'>
                 <Link className='text-xl hover:text-lime-600 duration-400' href="/tecnologia">
-                  <button onClick={toggleNavbar}>
-                    Tecnologia
+                  <button onClick={toggleNavbar} className="flex">
+                    <img src="https://cdn4.iconfinder.com/data/icons/artificial-intelligence-line-filled/123/Cloud_Intelligence__Circuit__cloud__computing__tecnology-256.png" className='w-9 sm:w-8 ' alt="Tecnologia" title='Tecnologia' />
+                    <span>Tecnologia</span>
                   </button>
                 </Link>
               </li>

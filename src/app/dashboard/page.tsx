@@ -110,14 +110,17 @@ const Dashboard = () => {
 
 
   if (status === "loading") {
-    return
+    return <div className='flex items-center justify-center h-screen'>
+      <div className="border-top-color:transparent w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
+      <p className="ml-2">cargando...</p>
+    </div>
   }
 
 
-  if (isLoading) return 
-  <div className='flex items-center justify-center min-h-screen'>
+  if (isLoading) return <div className='flex items-center justify-center h-screen'>
     <div className="border-top-color:transparent w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
     <p className="ml-2">cargando...</p>
+
   </div>
   if (!data) return <p className='bg-gradient-to-bl from-blue-50 to-violet-50 text-xl text-bold text-slate-900 h-screen'>No data</p>
 
@@ -253,7 +256,10 @@ const Dashboard = () => {
                         Actualizar
                       </button>
                     </form>
-                  ) : <p></p>
+                  ) : <div className="rounded-md">
+                    <img src="https://webescuela.com/wp-content/uploads/2020/07/que-es-un-blog.png" className="rounded-lg" alt="Dashboard image" />
+
+                  </div>
                 }
               </div>
             </div>
