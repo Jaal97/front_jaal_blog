@@ -41,32 +41,24 @@ const PostCard = (props) => {
 
 
     return (
-
         <div className='flex justify-center bg-gradient-to-bl from-blue-50 to-violet-50'>
             <div className="relative flex max-w-[58rem] flex-col rounded-xl bg-white bg-clip-border  shadow-md mt-10 mb-10">
                 <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none flex justify-center w-full">
-                    {
-                        !post.image || post.image === null
-
-                            ? <img
-                                className=' sm:w-3/4 md:w-3/4 h-auto'
-                                src="https://ticsluishurtadoconta.files.wordpress.com/2015/12/recursos-blogs.jpg"
-                                alt="imagen post"
-                            />
-
-                            : <img
-                                className=' sm:w-3/4 md:w-3/4 h-auto'
-                                src={post.image}
-                                alt="imagen post"
-                            />
-                    }
+                    <img
+                        src={post.image}
+                        className=' sm:w-3/4 md:w-3/4 h-auto'
+                        alt="imagen post"
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.src = "https://dlegaonline.es/wp-content/uploads/incluir-imagenes-en-tus-posts-800x450-1.jpg";
+                        }}
+                    />
                 </div>
                 <div className='flex  justify-between mt-4 pr-6 pl-6'>
 
                     {
                         idSession === idAutor || rol === "admin"
                             ?
-
                             <Link href={`/editpost/${post._id}`} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded flex" title="Editar" >
                                 <img src="https://cdn-icons-png.flaticon.com/512/4226/4226577.png" className="w-8 shrink-0 " alt="edit" />
                             </Link>

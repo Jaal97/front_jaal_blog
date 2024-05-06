@@ -10,21 +10,17 @@ const Card = (props) => {
             <Link href={`post/${post._id}`} post={post}>
 
                 <div className="bg-white rounded-lg border p-4">
-                    {
-                        !post.image || post.image === null
+                    <img
+                        src={post.image}
+                        className="w-full h-48 rounded-md object-cover"
+                        alt="image"
+                        data-tooltip-target="author"
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.src = "https://dlegaonline.es/wp-content/uploads/incluir-imagenes-en-tus-posts-800x450-1.jpg";
 
-                            ? <img
-                                className="w-full h-48 rounded-md object-cover "
-                                src="https://ticsluishurtadoconta.files.wordpress.com/2015/12/recursos-blogs.jpg"
-                                alt="perfil"
-                            />
-
-                            : <img
-                                className="w-full h-48 rounded-md object-cover"
-                                src={post.image}
-                                alt="perfil"
-                            />
-                    }
+                        }}
+                    />
                     <div className="px-1 py-4">
                         <div className="font-bold text-xl mb-2">{post.title}</div>
                         <p className='text-gray-900 text-sm mb-2'>Por: {post.idUser.userName}</p>
