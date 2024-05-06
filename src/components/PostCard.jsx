@@ -44,6 +44,7 @@ const PostCard = (props) => {
         <div className='flex justify-center bg-gradient-to-bl from-blue-50 to-violet-50'>
             <div className="relative flex max-w-[58rem] flex-col rounded-xl bg-white bg-clip-border  shadow-md mt-10 mb-10">
                 <div className="relative m-0 overflow-hidden rounded-none bg-transparent bg-clip-border text-gray-700 shadow-none flex justify-center w-full">
+
                     <img
                         src={post.image}
                         className=' sm:w-3/4 md:w-3/4 h-auto'
@@ -88,11 +89,26 @@ const PostCard = (props) => {
                 </div>
 
                 <div className='flex pr-6 pl-6  justify-center'>
-                    <Link href={post.video} className='mt-2 underline text-sky-900 text-xl ' target="_blank">
+                    {
+                        URL.canParse(post.video)
+                            ? <Link href={post.video} className='mt-2 underline text-sky-900 text-xl ' target="_blank">
+                                Video Relacionado
+                            </Link>
+                            : <Link href="" className='mt-2 underline text-sky-900 text-xl ' target="_blank">
+                                Video Relacionado
+                            </Link>
+                    }
 
-                        Video Relacionado
+                    {/* <Link
+                        href={post.video}
+                        className='mt-2 underline text-sky-900 text-xl '
+                        target="_blank"
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.href = "https://www.youtube.com/watch?v=9r0NthMLvtQ";
 
-                    </Link>
+                        }}
+                    >Video Relacionado</Link> */}
                 </div>
 
                 <div className="flex items-center justify-between pr-6 pl-6 mb-4">
