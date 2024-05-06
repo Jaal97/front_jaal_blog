@@ -4,13 +4,33 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const RegisterPage = (props:any) => {
+const RegisterPage = (props: any) => {
   const [errors, setErrors] = useState<string[]>([]);
   const [image, setImage] = useState<string>("");
   const [aboutMe, setAboutMe] = useState<string>("");
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const router = useRouter();
+
+
+  // function is_img(img: any) {
+
+
+
+  //   var filePath = img;
+  //   var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+  //   if (!allowedExtensions.exec(filePath)) {
+  //     alert('Extensión no permitida. Utiliza: .jpeg/.jpg/.png/.gif.');
+  //     return false;
+  //   } else {
+  //     setImage(img)
+  //     alert('Extensión correcta.');
+  //     return true;
+  //   }
+
+
+
+  // }
 
   let user = props.user;
 

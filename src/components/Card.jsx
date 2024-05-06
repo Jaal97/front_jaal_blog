@@ -16,13 +16,13 @@ const Card = (props) => {
                             ? <img
                                 className="w-full h-48 rounded-md object-cover "
                                 src="https://ticsluishurtadoconta.files.wordpress.com/2015/12/recursos-blogs.jpg"
-                                alt="imagen post"
+                                alt="perfil"
                             />
 
                             : <img
                                 className="w-full h-48 rounded-md object-cover"
                                 src={post.image}
-                                alt="imagen post"
+                                alt="perfil"
                             />
                     }
                     <div className="px-1 py-4">

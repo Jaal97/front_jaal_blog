@@ -68,7 +68,7 @@ const PostCard = (props) => {
                             ?
 
                             <Link href={`/editpost/${post._id}`} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded flex" title="Editar" >
-                                <img src="https://cdn-icons-png.flaticon.com/512/4226/4226577.png" className="w-8 shrink-0 " alt="edit"/>
+                                <img src="https://cdn-icons-png.flaticon.com/512/4226/4226577.png" className="w-8 shrink-0 " alt="edit" />
                             </Link>
                             : <p></p>
                     }
@@ -77,7 +77,7 @@ const PostCard = (props) => {
                         rol === "admin"
                             ? <div className=''>
                                 <Link href={`/elimpost/${post._id}`} className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded flex" title="Eliminar">
-                                <img src="https://cdn1.iconfinder.com/data/icons/prettyoffice8/256/Trash-can.png" className="w-8 shrink-0 " alt="eliminar"/>
+                                    <img src="https://cdn1.iconfinder.com/data/icons/prettyoffice8/256/Trash-can.png" className="w-8 shrink-0 " alt="eliminar" />
                                 </Link>
                             </div>
                             : <p></p>
@@ -107,10 +107,15 @@ const PostCard = (props) => {
 
                     <div className="flex items-center ">
                         <img
-                            alt="imagen autor"
                             src={post.idUser.image}
                             className="relative inline-block h-9 w-9 rounded-full border-2 border-white object-cover object-center hover:z-10"
-                            data-tooltip-target="author-1"
+                            alt="autor"
+                            data-tooltip-target="author"
+                            onError={({ currentTarget }) => {
+                                currentTarget.onerror = null; // prevents looping
+                                currentTarget.src = "https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg";
+
+                            }}
                         />
                         <span className='ml-2 text-lg'>{post.idUser.userName}</span>
                     </div>

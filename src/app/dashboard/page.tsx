@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   const [userUpdate, setUserUpdate] = useState({
     image: "",
-    aboutMe: " ",
+    aboutMe: "",
     userName: ""
   });
 
@@ -60,7 +60,11 @@ const Dashboard = () => {
 
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    console.log(e.target.name)
+
     setUserUpdate({ ...userUpdate, [e.target.name]: e.target.value })
+
+    
   };
 
   useEffect(() => {
@@ -108,6 +112,26 @@ const Dashboard = () => {
   }
 
 
+//   function is_img(idinputfile){
+  
+    
+   
+        
+//             var filePath = this.value;
+//             var allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+//             if(!allowedExtensions.exec(filePath)){
+//                 alert('Extensión no permitida. Utiliza: .jpeg/.jpg/.png/.gif.');
+//                 fileInput.value = '';
+//                 return false;
+//             }else{
+//                 alert('Extensión correcta.');
+//                 return true;
+//             }
+        
+//     });
+    
+// }
+
 
   if (status === "loading") {
     return <div className='flex items-center justify-center h-screen'>
@@ -139,14 +163,25 @@ const Dashboard = () => {
                       <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" className="  bg-gray-300 w-32 h-32 p-1  rounded-full mb-4 shrink-0" alt="profile" />
                       :
                       userUpdate.image === "" ?
-                        <img src={session?.user?.image} className="w-32 h-32 p-1 bg-gray-300 rounded-full mb-4 shrink-0">
-
-                        </img>
+            
+                        <img 
+                        src={session?.user?.image}
+                        className="w-32 h-32 p-1 bg-gray-300 rounded-full mb-4 shrink-0"
+                        onError={({ currentTarget }) => {
+                          currentTarget.onerror = null; // prevents looping
+                          currentTarget.src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg";
+                        }}
+                      />
 
                         :
-                        <img src={user['image']} className=" bg-gray-300 w-32 h-32 p-1  rounded-full mb-4 shrink-0">
-
-                        </img>
+                        <img 
+                        src={user['image']}
+                        className="w-32 h-32 p-1 bg-gray-300 rounded-full mb-4 shrink-0"
+                        onError={({ currentTarget }) => {
+                          currentTarget.onerror = null; // prevents looping
+                          currentTarget.src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg";
+                        }}
+                      />
                   }
 
                   {

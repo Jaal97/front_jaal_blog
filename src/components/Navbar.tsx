@@ -121,11 +121,20 @@ const Navbar = () => {
             <>
               <div className=" flex " >
                 {
-                  user.image === "" ?
+                  user.image === "" || user.image === null ?
                     <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" alt="profile" />
                     :
-                    <img src={user.image} alt="image_profile" className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" width={40} />
-
+                    <img 
+                    src={user['image']}
+                    className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2"
+                    width={40}
+                    alt="profile"
+                    onError={({ currentTarget }) => {
+                      currentTarget.onerror = null; // prevents looping
+                      currentTarget.src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg";
+                      
+                    }}
+                    />
                 }
 
                 <span className="text-center mr-4"> {user.userName}</span>
