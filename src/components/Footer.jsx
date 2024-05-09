@@ -10,7 +10,7 @@ const Footer = () => {
         <div className='flex w-full'>
           <div className='w-3/5 flex justify-start  mt-4'>
             <Link href={'/'} className='ml-4 mr-4 md:mr-10'>
-                <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/home-256.png" className='w-9 sm:w-8 ' alt="home" title='Home'/>
+                <img src="https://cdn0.iconfinder.com/data/icons/gradient-runded-glowing-icons/128/home.png" className='w-9 sm:w-8 ' alt="home" title='Home'/>
             </Link>
 
             <Link href={'/videojuegos'} className='mr-4 md:mr-10'>

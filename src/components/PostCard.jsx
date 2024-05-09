@@ -94,21 +94,10 @@ const PostCard = (props) => {
                             ? <Link href={post.video} className='mt-2 underline text-sky-900 text-xl ' target="_blank">
                                 Video Relacionado
                             </Link>
-                            : <Link href="" className='mt-2 underline text-sky-900 text-xl ' target="_blank">
+                            : <Link href="/not-found" className='mt-2 underline text-sky-900 text-xl ' target="_blank">
                                 Video Relacionado
                             </Link>
                     }
-
-                    {/* <Link
-                        href={post.video}
-                        className='mt-2 underline text-sky-900 text-xl '
-                        target="_blank"
-                        onError={({ currentTarget }) => {
-                            currentTarget.onerror = null; // prevents looping
-                            currentTarget.href = "https://www.youtube.com/watch?v=9r0NthMLvtQ";
-
-                        }}
-                    >Video Relacionado</Link> */}
                 </div>
 
                 <div className="flex items-center justify-between pr-6 pl-6 mb-4">

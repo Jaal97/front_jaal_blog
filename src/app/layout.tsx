@@ -18,6 +18,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Jaal Blog",
   description: "Videojuegos, Series y mucho más",
+  icons:{
+    icon:['https://cdn1.iconfinder.com/data/icons/news-21/64/typewriter-keyboard-paper-writing-512.png'],
+   
+  }
 };
 
 export default function RootLayout({

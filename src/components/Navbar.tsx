@@ -40,30 +40,35 @@ const Navbar = () => {
   return (
 
     <header className="">
-      <nav className="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8 bg-dark">
-        <div className="hidden lg:flex lg:gap-x-12 text-white">
+      <nav className="mx-auto flex max-w-8xl items-center justify-between  p-4 lg:p-6 lg:px-8 bg-dark">
+        <div className="hidden lg:flex lg:gap-x-10 lg:mr-4 text-white">
           <Link
             href="/"
-            className="text-xl hover:text-lime-500 duration-300"
+            className="text-xl hover:text-lime-500 duration-300 flex"
           >
+            <img src="https://cdn0.iconfinder.com/data/icons/gradient-runded-glowing-icons/128/home.png" className='w-8 sm:w-8 mr-1 ' alt="home" title='Home' />
             Home
           </Link>
+
           <Link
             href="/videojuegos"
-            className="text-xl hover:text-lime-500 duration-300"
+            className="text-xl hover:text-lime-500 duration-300 flex"
           >
+            <img src="https://cdn2.iconfinder.com/data/icons/round-set-vol-2/120/gamepad-256.png" alt="videojuegos" className='w-8 sm:w-8 mr-1' title='Videojuegos' />
             Videojuegos
           </Link>
           <Link
             href="/seriesypeliculas"
-            className="text-xl hover:text-lime-500 duration-300"
+            className="text-xl hover:text-lime-500 duration-300 flex"
           >
+            <img src="https://cdn1.iconfinder.com/data/icons/lifestyle-entertainment-vol-3/512/tv_television_show_series-256.png" className='w-8 sm:w-8 mr-1' alt="Series y Peliculas" title='Series y Peliculas' />
             Series y Películas
           </Link>
           <Link
             href="/tecnologia"
-            className="text-xl hover:text-lime-500 duration-300"
+            className="text-xl hover:text-lime-500 duration-300 flex"
           >
+            <img src="https://cdn4.iconfinder.com/data/icons/artificial-intelligence-line-filled/123/Cloud_Intelligence__Circuit__cloud__computing__tecnology-256.png" className='w-8 sm:w-8 mr-1' alt="Tecnologia" title='Tecnologia' />
             Tecnologia
           </Link>
         </div>
@@ -116,42 +121,47 @@ const Navbar = () => {
             )}
           </button>
         </span>
-        <div className=" hidden lg:flex lg:flex-1 lg:justify-end lg:ml-10 text-white text-xl">
+        <div className=" hidden lg:flex lg:flex-1 lg:justify-end  text-white text-xl">
           {session?.user ? (
             <>
-              <div className=" flex " >
+              <div className=" flex" >
                 {
                   user.image === "" || user.image === null ?
                     <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2" alt="profile" />
                     :
-                    <img 
-                    src={user['image']}
-                    className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2"
-                    width={40}
-                    alt="profile"
-                    onError={({ currentTarget }) => {
-                      currentTarget.onerror = null; // prevents looping
-                      currentTarget.src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg";
-                      
-                    }}
+                    <img
+                      src={user['image']}
+                      className="  bg-gray-300 inline-block h-10 w-10 rounded-full ring-1 ring-dark mr-2"
+                      width={40}
+                      alt="profile"
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; // prevents looping
+                        currentTarget.src = "https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg";
+
+                      }}
                     />
                 }
+                <div className="flex flex-wrap">
+                  <span className="text-center lg:mr-4"> {user.userName}</span>
+                </div>
 
-                <span className="text-center mr-4"> {user.userName}</span>
 
               </div>
-              <Link
-                href="/dashboard"
-                className="btn btn-success btn-sm mr-4 max-w-24 text-lg  text-center"
-              >
-                Mi Perfil
-              </Link>
-              <button
-                onClick={() => signOut()}
-                className="btn btn-danger btn-sm  max-w-24 text-lg text-justify "
-              >
-                Sign Out
-              </button>
+              <div className="flex justify-end">
+                <Link
+                  href="/dashboard"
+                  className="btn btn-success btn-sm mr-3 max-w-24 text-lg  text-center"
+                >
+                  Perfil
+                </Link>
+                <button
+                  onClick={() => signOut()}
+                  className="btn btn-danger btn-sm  max-w-24 text-lg text-justify "
+                >
+                  Salir
+                </button>
+              </div>
+
 
             </>
 
@@ -208,7 +218,7 @@ const Navbar = () => {
                     className="btn btn-danger btn-sm  max-w-24 text-lg text-justify "
                   >
                     <button onClick={toggleNavbar}>
-                      Sign Out
+                      Salir
                     </button>
 
                   </button>
@@ -244,7 +254,7 @@ const Navbar = () => {
                 <Link className='text-xl hover:text-lime-600 duration-400' href="/">
                   <button onClick={toggleNavbar} className="flex">
 
-                    <img src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/home-256.png" className='w-9 sm:w-8' alt="home" title='Home' />
+                    <img src="https://cdn0.iconfinder.com/data/icons/gradient-runded-glowing-icons/128/home.png" className='w-9 sm:w-8' alt="home" title='Home' />
 
                     <span className="">Home</span>
                   </button>
